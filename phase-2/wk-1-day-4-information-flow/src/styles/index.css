@@ -12,6 +12,7 @@ body {
   color: white;
   /* font-family: 'Syne Mono', monospace; */
   font-family: 'Bebas Neue', cursive;
+  padding: 3em;
 }
 
 code {

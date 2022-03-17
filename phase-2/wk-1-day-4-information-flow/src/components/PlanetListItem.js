@@ -1,7 +1,9 @@
-function PlanetListItem({planet}) {
+function PlanetListItem({planet, setDisplayPlanetId}) {
+
     return (
-        <li>{planet.name}</li>
+        <li onClick={() => setDisplayPlanetId(planet.id)}>{planet.name}</li>
     )
+
 }
 
 export default PlanetListItem
