@@ -1,6 +1,6 @@
 function PlanetDetail({planet}) {
     return (
-        <div>
+        <div className="white-border">
 
             <h3>{planet.name}</h3>
 
