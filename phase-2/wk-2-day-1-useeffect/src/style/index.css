@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* {
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  border-color: white;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 2em;
+  background-color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+button {
+  border: solid 0.2em;
+  border-radius: 0.3em;
+  background: none;
+  cursor: pointer;
+  margin: 0.5em;
+}
+button:active {
+  background: #222;
+}
+
+.rainbow-cycle-hover:hover {
+  animation: rainbow-cycle 2s infinite;
+}
+
+.rainbow-cycle {
+  animation: rainbow-cycle 2s infinite;
+}
+
+@keyframes rainbow-cycle {
+  0% {color: red; border-color: red;}
+  16% {color: purple; border-color: purple;}
+  32% {color: blue; border-color: blue;}
+  48% {color: green; border-color: green;}
+  64% {color: #FBBD06; border-color: #FBBD06;}
+  80% {color: orange; border-color: orange;}
+  100% {color: red; border-color: red;}
+}
+
+.grid {
+  display: grid;
+}
+
+.column-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
