@@ -8,7 +8,7 @@
 
 - Make all `inputs` on the form controlled
 
-- Inputs and their states default to certain values that make sense
+- Make inputs and their states default to certain values that make sense
 
 - When someone submits the form, use an alert to let them know how much they owe based on their income and bracket:
   - If someone is a *Service Drone* they owe 50% of their income
@@ -21,11 +21,12 @@
 
 - When a person clicks the `reset button`, all fields and state reset without refreshing the page
 
+### Advanced
+
 - Suggest a tax bracket in the provided `span` based on the income a person types in:
     - Between `0` and `30,000`, suggest the person is a *Service Drone*
     - Between `30,000` and `100,000`, suggest the person is a *Middle Class American*
     - Above `100,000`, suggest the person *Been to Space*
-
 
 - If a person selects a tax bracket, keep the form from selecting the bracket if their income is too low:
   - Anyone can choose *Service Drone*
