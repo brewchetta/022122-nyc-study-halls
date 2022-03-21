@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
+  /* font-family: 'Syne Mono', monospace; */
+  font-family: 'Bebas Neue', cursive;
+  padding: 3em;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.column-3 {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+ol {
+  text-align: left;
+}
+
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  color: yellow;
+}
+
+.white-border {
+  border: solid white 2px;
+  border-bottom-right-radius: 5px;
+  padding: 1em;
+  margin: 1em;
+  margin-top: 0;
+}
+
+label, input {
+  text-align: left;
+  display: block;
+}
+
+label, input[type=submit] {
+  margin-top: 1em;
+}
+
+img {
+  height: 3em;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fly-in {
+  animation: fly-in 1s forwards;
+  top: 0;
+  left: 9em;
+}
+
+@keyframes fly-in {
+  0% {transform: translateX(110vw)}
+  100% {transform: translateX(0)}
+}
