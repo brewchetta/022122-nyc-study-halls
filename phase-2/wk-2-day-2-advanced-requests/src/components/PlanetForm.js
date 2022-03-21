@@ -13,8 +13,8 @@ function PlanetForm() {
             <label htmlFor="name">Name: </label>
             <input name="name" value="Name goes here"/>
 
-            <label htmlFor="orbital_period_in_earth_days">Orbital Period: </label>
-            <input name="orbital_period_in_earth_days" type="number" step="0.01" value="0"/>
+            <label htmlFor="orbital_period_in_earth_days">Orbital Period (in Earth days): </label>
+            <input name="orbital_period_in_earth_days" type="number" step="0.01"/>
 
             <label htmlFor="fun_fact">Fun Fact: </label>
             <input name="fun_fact" value="Name goes here"/>
