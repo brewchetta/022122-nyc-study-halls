@@ -60,3 +60,22 @@ label, input {
 label, input[type=submit] {
   margin-top: 1em;
 }
+
+img {
+  height: 3em;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fly-in {
+  animation: fly-in 1s forwards;
+  top: 0;
+  left: 9em;
+}
+
+@keyframes fly-in {
+  0% {transform: translateX(110vw)}
+  100% {transform: translateX(0)}
+}
