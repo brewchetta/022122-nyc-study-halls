@@ -62,3 +62,7 @@ button:active {
 .column-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+
+img {
+  max-width: 80%;
+}
