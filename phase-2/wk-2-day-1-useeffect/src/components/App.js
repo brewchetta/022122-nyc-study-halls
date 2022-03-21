@@ -1,8 +1,12 @@
+import { useState } from 'react'
 import RandomDadJoke from "./RandomDadJoke"
 import FavoriteDadJokesDisplay from "./FavoriteDadJokesDisplay"
 import RandomImage from "./RandomImage"
 
 function App() {
+
+  const [imgOpen, setImgOpen] = useState(true)
+
   return (
     <div className="App">
 
@@ -12,7 +16,15 @@ function App() {
 
         <RandomDadJoke />
 
-        <RandomImage />
+        <div>
+
+          {imgOpen ? <RandomImage /> : null}
+
+          <br/>
+        
+          <button onClick={() => setImgOpen(isOpen => !isOpen)}>{imgOpen ? 'Close' : 'Open'} Image</button>
+
+        </div>
 
         <FavoriteDadJokesDisplay />
 
