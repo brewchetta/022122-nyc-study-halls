@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import PlanetDetail from './PlanetDetail';
 import PlanetList from './PlanetList'
 import PlanetForm from './PlanetForm'
+import spaceShuttle from '../assets/space-shuttle.png'
 
 function App() {
 
@@ -13,6 +14,8 @@ function App() {
 
   return (
     <div className="App grid column-3">
+
+      <img className="absolute fly-in" src={spaceShuttle} alt="space shuttle" />
 
       <PlanetList planets={planets} setDisplayPlanetId={setDisplayPlanetId} />
 
