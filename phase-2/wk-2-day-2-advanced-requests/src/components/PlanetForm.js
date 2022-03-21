@@ -6,7 +6,7 @@ function PlanetForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="white-border">
 
             <h3>List a New Planet</h3>
 
@@ -24,7 +24,7 @@ function PlanetForm() {
 
             <input type="submit" value="List your planet" />
 
-        </form>        
+        </form>
     )
 
 }

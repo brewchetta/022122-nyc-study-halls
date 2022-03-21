@@ -18,11 +18,11 @@ function PlanetDetail({planetId}) {
     return (
         <div className="white-border">
 
-            <h3>{planet.name}</h3>
+            <h3>{planet.name || "Select a planet to see its info"}</h3>
 
-            <p>Orbital Period (in Earth days): {planet.orbital_period_in_earth_days}</p>
+            <p>Orbital Period (in Earth days): {planet.orbital_period_in_earth_days || "__"}</p>
 
-            <p>Fun fact: {planet.fun_fact}</p>
+            <p>Fun fact: {planet.fun_fact || "_______________"}</p>
 
             <p>Is a planet: {planet.is_planet ? "Yes": "No"}</p>
 

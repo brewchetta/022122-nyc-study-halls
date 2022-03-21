@@ -16,13 +16,16 @@ function PlanetList({planets, setDisplayPlanetId}) {
     })
 
     // map through planets and display them in child components
-    const renderedPlanets = filteredPlanets.map(planet => <PlanetListItem key={planet} planet={planet} setDisplayPlanetId={setDisplayPlanetId} />)
+    const renderedPlanets = filteredPlanets.map(planet => (
+      <PlanetListItem
+        key={planet}
+        planet={planet}
+        setDisplayPlanetId={setDisplayPlanetId}
+      />
+    ))
 
     function handleChange(e) {
-        const selectedFilter = e.target.value
-        setFilteredList(selectedFilter)
-        
-        
+        setFilteredList(e.target.value)
     }
 
     return (
@@ -30,15 +33,14 @@ function PlanetList({planets, setDisplayPlanetId}) {
 
             <select onChange={handleChange}>
                 <option value='all'>All Planets</option>
-                <option value='planet'>The MOST Definitely Planets</option>
+                <option value='planet'>Definitive Planets</option>
                 <option value='non-planet'>Extreme Trans Neptunian Objects</option>
             </select>
 
             <ol>
 
-
                 {renderedPlanets}
-                
+
             </ol>
 
         </div>

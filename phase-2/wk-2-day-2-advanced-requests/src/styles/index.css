@@ -22,8 +22,14 @@ code {
 
 .App {
   text-align: center;
+}
+
+.grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+}
+
+.column-3 {
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 ol {
@@ -41,5 +47,16 @@ li:hover {
 .white-border {
   border: solid white 2px;
   border-bottom-right-radius: 5px;
-  padding: 0.5em;
+  padding: 1em;
+  margin: 1em;
+  margin-top: 0;
+}
+
+label, input {
+  text-align: left;
+  display: block;
+}
+
+label, input[type=submit] {
+  margin-top: 1em;
 }
