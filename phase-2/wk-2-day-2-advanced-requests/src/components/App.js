@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import PlanetDetail from './PlanetDetail';
 import PlanetList from './PlanetList'
+import PlanetForm from './PlanetForm'
 
 function App() {
 
@@ -11,13 +12,13 @@ function App() {
   // you may want to use a useEffect...
 
   return (
-    <div className="App">
+    <div className="App grid column-3">
 
       <PlanetList planets={planets} setDisplayPlanetId={setDisplayPlanetId} />
 
-      <PlanetDetail planetId={displayPlanetId} setPlanets={setPlanets} /> 
+      <PlanetDetail planetId={displayPlanetId} setPlanets={setPlanets} />
 
-      <PlanetForm />      
+      <PlanetForm />
 
     </div>
   );
