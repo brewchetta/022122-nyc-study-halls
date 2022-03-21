@@ -67,12 +67,12 @@ img {
 
 .absolute {
   position: absolute;
-  top: 0;
-  left: 9em;
 }
 
 .fly-in {
   animation: fly-in 1s forwards;
+  top: 0;
+  left: 9em;
 }
 
 @keyframes fly-in {
