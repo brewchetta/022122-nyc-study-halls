@@ -7,10 +7,21 @@ import spaceShuttle from '../assets/space-shuttle.png'
 function App() {
 
   const [planets, setPlanets] = useState([])
-  const [displayPlanetId, setDisplayPlanetId] = useState(1)
+  const [displayPlanetId, setDisplayPlanetId] = useState(0)
 
-  // write something here to get all the planets when the app first loads...
-  // you may want to use a useEffect...
+  useEffect(() => {
+    fetch('http://localhost:3001/planets')
+    .then(res => res.json())
+    .then(data => setPlanets(data))
+  } ,[])
+
+  function addPlanet(newPlanet) {
+    setPlanets(planets => [...planets, newPlanet])
+  }
+
+  function removePlanet(planetToRemove) {
+    setPlanets(planets => planets.filter(planet => planet.id !== planetToRemove.id))
+  }
 
   return (
     <div className="App grid column-3">
@@ -19,9 +30,9 @@ function App() {
 
       <PlanetList planets={planets} setDisplayPlanetId={setDisplayPlanetId} />
 
-      <PlanetDetail planetId={displayPlanetId} setPlanets={setPlanets} />
+      <PlanetDetail displayPlanetId={displayPlanetId} removePlanet={removePlanet} />
 
-      <PlanetForm />
+      <PlanetForm addPlanet={addPlanet} setPlanets={setPlanets} />
 
     </div>
   );
