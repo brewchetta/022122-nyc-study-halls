@@ -18,7 +18,3 @@
 
 ## Endpoints
 You can use `http://localhost:3001/planets` for your endpoint. You can start the json-server with `npm run jsonserver`
-
-## Before lecture try to...
-
-- XXXX
