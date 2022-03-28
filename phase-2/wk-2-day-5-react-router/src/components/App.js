@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-function App() {
-  return (
-    <div className="App">
-
-      <h1>Study Hall</h1>
-=======
 import { useState, useEffect } from 'react'
 import PlanetDetail from './PlanetDetail';
 import PlanetList from './PlanetList'
@@ -70,7 +63,6 @@ function App() {
         <Route path="*" element={<img className="four-oh-four" src="https://www.elegantthemes.com/blog/wp-content/uploads/2020/02/000-404.png" alt="Page not found, the panda is angry" /> } />
 
       </Routes>
->>>>>>> Stashed changes
 
     </div>
   );
