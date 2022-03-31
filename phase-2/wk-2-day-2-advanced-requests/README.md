@@ -5,6 +5,9 @@
 - POST, PATCH, DELETE request in React
 
 
+## Endpoints
+You can use `http://localhost:3001/planets` for your endpoint. You can start the json-server with `npm run jsonserver`
+
 ## Before lecture try to...
 
 - Set up the `planets` state so that it gets fetched from the `db.json` when the app starts

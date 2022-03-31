@@ -1,10 +1,4 @@
 {
-  "cats": [
-    {
-      "id": 1
-    }
-  ],
-
   "planets": [
     {
       "id": 1,
@@ -116,6 +110,7 @@
       "fun_fact": "Planet 9 might be as far as 800au from the sun although some models put it around 400",
       "orbital_period_in_earth_days": 3613500,
       "is_planet": true
+<<<<<<< HEAD
     },
     {
       "name": "Titan",
@@ -161,3 +156,8 @@
     }
   ]
 }
+=======
+    }
+  ]
+}
+>>>>>>> main

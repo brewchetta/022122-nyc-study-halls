@@ -41,7 +41,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App grid column-3">
+
+      <img className="absolute fly-in" src={spaceShuttle} alt="space shuttle" />
+
+      <PlanetList planets={planets} setDisplayPlanetId={setDisplayPlanetId} />
+
+      <PlanetDetail planetId={displayPlanetId} setPlanets={setPlanets} handleRemovePlanet={handleRemovePlanet} />
 
       <nav>
         <Link to="/planet-list">Planet List</Link>
