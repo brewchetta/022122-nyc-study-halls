@@ -13,3 +13,7 @@
 # How can we give our instance properties? How can we access those properties? How can we make them changeable?
 
 # What is a macro?
+
+# How can we give the entire class properties?
+
+# How can we define class methods? What is the scope of a class method or variable? What is the scope of an instance method or variable?
