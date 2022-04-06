@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+
+require_relative '../config/env.rb'
+
+puts "let's build something here!"
