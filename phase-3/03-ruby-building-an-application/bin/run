@@ -1,5 +1,11 @@
-#!/usr/bin/ruby
+#!/usr/share/rvm/rubies/ruby-2.7.4/bin/ruby
+
+require 'pry'
 
 require_relative '../config/env.rb'
 
-puts "let's build something here!"
+system('clear')
+
+# App.new.run
+
+binding.pry
