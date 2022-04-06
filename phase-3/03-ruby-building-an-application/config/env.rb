@@ -1,4 +1,4 @@
-require "pry"
+require 'require_all'
 
 require_relative '../lib/App.rb'
-require_relative '../lib/models/Blog.rb'
+require_all 'lib'
