@@ -1,0 +1,24 @@
+{
+  "ducks": [
+    {
+      "id": 1,
+      "name": "Safety Duck",
+      "image": "https://amsterdamduckstore.com/wp-content/uploads/2021/07/Corona-Rubber-Duck-Yellow-slant-right-Amsterdam-Duck-Store.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Albill Quackstein",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThE_uiOKG4VN2oW7CrJbxtj4BWuS3DdOmOxQ&usqp=CAU"
+    },
+    {
+      "id": 3,
+      "name": "Tiny",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4HnwDBjEYn9aPPnzzFXKcMFF_MxIxmh_Ow&usqp=CAU"
+    },
+    {
+      "id": 4,
+      "name": "The Quacken",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplWEh_oLpEj9Tr5fdWBp6pF4opR0KzUP5UQ&usqp=CAU"
+    }
+  ]
+}
