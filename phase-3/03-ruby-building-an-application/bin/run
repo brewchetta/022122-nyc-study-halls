@@ -6,6 +6,6 @@ require_relative '../config/env.rb'
 
 system('clear')
 
-# App.new.run
+App.new.run
 
-binding.pry
+# binding.pry
