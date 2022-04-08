@@ -1,0 +1,16 @@
+source "https://rubygems.org"
+
+# An object-relational mapper
+gem "activerecord"
+
+# Configures common Rake tasks for working with Active Record
+gem "sinatra-activerecord"
+
+# Run common tasks from the command line
+gem "rake"
+
+# Provides functionality to interact with a SQLite3 database
+gem "sqlite3"
+
+# Require all files in a folder
+gem "require_all"
