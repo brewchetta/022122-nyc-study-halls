@@ -11,4 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 1) do
+  create_table "cars", force: :cascade do |t|
+    t.text "make"
+    t.string "model"
+    t.integer "cylinders"
+    t.datetime "year"
+    t.text "color"
+  end
+
 end
