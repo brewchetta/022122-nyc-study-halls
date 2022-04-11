@@ -15,4 +15,6 @@ gem "sqlite3"
 # Require all files in a folder
 gem "require_all"
 
-gem "pry"
+namespace :development do
+  gem "pry"
+end

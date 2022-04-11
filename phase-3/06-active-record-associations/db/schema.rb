@@ -10,13 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 1) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_11_153104) do
+  create_table "appointments", force: :cascade do |t|
+    t.integer "patient_id"
+    t.datetime "time"
+    t.integer "doctor_id"
+  end
+
   create_table "cars", force: :cascade do |t|
     t.text "make"
     t.string "model"
     t.integer "cylinders"
     t.datetime "year"
     t.text "color"
+  end
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "name"
+    t.string "specialty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "chronic_ailments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

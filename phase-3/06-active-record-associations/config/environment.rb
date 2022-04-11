@@ -1,3 +1,4 @@
+# setting ENV
 ENV["RACK_ENV"] ||= "development"
 
 require 'bundler/setup'
