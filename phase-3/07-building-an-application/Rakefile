@@ -1,0 +1,13 @@
+require_relative './config/environment'
+require "sinatra/activerecord/rake"
+
+namespace :console do
+
+  desc 'This pulls up a pry console'
+  task :pry do
+    system('clear')
+    puts '##### WELCOME TO PRY #####'
+    binding.pry
+  end
+
+end

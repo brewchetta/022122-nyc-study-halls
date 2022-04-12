@@ -1,0 +1,11 @@
+gem "pry"
+
+gem "sinatra-activerecord"
+
+gem "sqlite3"
+
+gem "rake"
+
+gem "require_all"
+
+gem "faker"
