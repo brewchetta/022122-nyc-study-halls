@@ -1,0 +1,23 @@
+source "https://rubygems.org"
+
+gem "activerecord", "~> 6.1"
+
+gem "sinatra-activerecord"
+
+gem "rake"
+
+gem "sqlite3"
+
+gem "require_all"
+
+# A DSL for quickly creating web applications
+gem "sinatra"
+
+# These gems will only be used when we are running the application locally
+group :development do
+  gem "faker"
+
+  gem "rerun"
+
+  gem "pry"
+end
