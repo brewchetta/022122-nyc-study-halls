@@ -10,13 +10,13 @@ gem "sqlite3"
 
 gem "require_all"
 
-# A DSL for quickly creating web applications
+# our only really new gem is sinatra...
 gem "sinatra"
 
-# These gems will only be used when we are running the application locally
 group :development do
   gem "faker"
 
+  # rerun will watch for changes in the code and reload the server when it notices any
   gem "rerun"
 
   gem "pry"
