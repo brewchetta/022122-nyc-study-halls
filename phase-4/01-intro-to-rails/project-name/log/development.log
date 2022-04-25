@@ -1,0 +1,202 @@
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSeasons (20220425145143)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "seasons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "game" varchar, "name" varchar, "is_current?" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220425145143"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-25 15:16:06.410641"], ["updated_at", "2022-04-25 15:16:06.410641"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeason Create (0.2ms)[0m  [1m[32mINSERT INTO "seasons" ("game", "name", "is_current?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["game", "ducks"], ["name", "duck season"], ["is_current?", 1], ["created_at", "2022-04-25 15:19:47.029837"], ["updated_at", "2022-04-25 15:19:47.029837"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeason Create (0.2ms)[0m  [1m[32mINSERT INTO "seasons" ("game", "name", "is_current?", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["game", "wabbits"], ["name", "wabbit season"], ["is_current?", 1], ["created_at", "2022-04-25 15:19:47.035221"], ["updated_at", "2022-04-25 15:19:47.035221"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mSeason Load (0.2ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  [1m[36mSeason Load (0.2ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons" WHERE "seasons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSeason Load (0.2ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons" WHERE "seasons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSeason Load (0.2ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons" WHERE "seasons"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2022-04-25 11:23:49 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/chett/.rvm/gems/ruby-2.7.4/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/chett/.rvm/gems/ruby-2.7.4/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 667)
+Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 6262)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:24:54 -0400
+Processing by SeasonsController#index as HTML
+  [1m[36mSeason Load (0.2ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  ↳ app/controllers/seasons_controller.rb:4:in `index'
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.7ms | Allocations: 6237)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:29:23 -0400
+Processing by SeasonsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms | Allocations: 4326)
+
+
+  
+NoMethodError (undefined method `serializable_hash' for "ducks":String):
+  
+app/controllers/seasons_controller.rb:3:in `index'
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-04-25 11:29:23 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:29:37 -0400
+Processing by SeasonsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 3180)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHunters (20220425153149)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "hunters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "weapon" varchar, "season_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220425153149"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mHunter Load (0.2ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeason Load (0.2ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons" WHERE "seasons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHunter Create (0.3ms)[0m  [1m[32mINSERT INTO "hunters" ("name", "weapon", "season_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Elmer Fudd"], ["weapon", nil], ["season_id", 1], ["created_at", "2022-04-25 15:37:22.054013"], ["updated_at", "2022-04-25 15:37:22.054013"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mHunter Load (0.2ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters"[0m
+  [1m[36mHunter Load (0.3ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" ORDER BY "hunters"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons" WHERE "seasons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHunter Update (0.1ms)[0m  [1m[33mUPDATE "hunters" SET "weapon" = ?, "updated_at" = ? WHERE "hunters"."id" = ?[0m  [["weapon", "wabbit huntin gun"], ["updated_at", "2022-04-25 15:40:40.135201"], ["id", 1]]
+  [1m[36mTRANSACTION (27.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mHunter Load (0.1ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters"[0m
+Started GET "/" for 127.0.0.1 at 2022-04-25 11:42:45 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/chett/.rvm/gems/ruby-2.7.4/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/chett/.rvm/gems/ruby-2.7.4/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.0ms | Allocations: 561)
+Completed 200 OK in 10ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 4971)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:42:55 -0400
+Processing by SeasonsController#index as HTML
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.1ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 1]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.1ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 2]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+Completed 200 OK in 37ms (Views: 31.3ms | ActiveRecord: 1.3ms | Allocations: 19386)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:43:56 -0400
+Processing by SeasonsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.1ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 1]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.0ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 2]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.0ms | Allocations: 8172)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateWabbits (20220425154827)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "wabbits" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "number_of_carrots" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220425154827"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:56:27 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SeasonsController#index as HTML
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.1ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 1]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.1ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 2]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+Completed 200 OK in 39ms (Views: 27.4ms | ActiveRecord: 0.9ms | Allocations: 30650)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:56:30 -0400
+Processing by SeasonsController#index as HTML
+  [1m[36mSeason Load (0.1ms)[0m  [1m[34mSELECT "seasons".* FROM "seasons"[0m
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.1ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 1]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+  [1m[36mHunter Load (0.0ms)[0m  [1m[34mSELECT "hunters".* FROM "hunters" WHERE "hunters"."season_id" = ?[0m  [["season_id", 2]]
+  ↳ app/controllers/seasons_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.2ms | Allocations: 2273)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:56:57 -0400
+Processing by SeasonsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 44)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:57:05 -0400
+Processing by SeasonsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 30)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:57:07 -0400
+Processing by SeasonsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 30)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:57:08 -0400
+Processing by SeasonsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 27)
+
+
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:59:29 -0400
+  
+SyntaxError (/home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/01-intro-to-rails/project-name/app/controllers/seasons_controller.rb:4: syntax error, unexpected tLABEL
+...:game, include: {hunters: only: :name}
+...                          ^~~~~
+):
+  
+app/controllers/seasons_controller.rb:4: syntax error, unexpected tLABEL
+app/controllers/seasons_controller.rb:4: syntax error, unexpected tLABEL
+Started GET "/seasons" for 127.0.0.1 at 2022-04-25 11:59:49 -0400
+  
+SyntaxError (/home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/01-intro-to-rails/project-name/app/controllers/seasons_controller.rb:3: syntax error, unexpected tLABEL
+...:game, include: {hunters: only: :name}
+...                          ^~~~~
+/home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/01-intro-to-rails/project-name/app/controllers/seasons_controller.rb:12: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/seasons_controller.rb:3: syntax error, unexpected tLABEL
+app/controllers/seasons_controller.rb:12: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/seasons_controller.rb:3: syntax error, unexpected tLABEL
+app/controllers/seasons_controller.rb:12: syntax error, unexpected end-of-input, expecting `end'

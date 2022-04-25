@@ -1,0 +1,2 @@
+class Wabbit < ApplicationRecord
+end
