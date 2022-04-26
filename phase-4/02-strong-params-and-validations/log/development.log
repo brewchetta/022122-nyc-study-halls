@@ -1,0 +1,525 @@
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCountries (20220426133253)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "countries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "population" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220426133253"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCitizens (20220426133316)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "citizens" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220426133316"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePassports (20220426133329)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "citizen_id" varchar, "country_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220426133329"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-26 13:33:34.015756"], ["updated_at", "2022-04-26 13:33:34.015756"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Create (0.1ms)[0m  [1m[32mINSERT INTO "countries" ("name", "population", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "USA"], ["population", 329500000], ["created_at", "2022-04-26 13:43:19.516633"], ["updated_at", "2022-04-26 13:43:19.516633"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Create (0.1ms)[0m  [1m[32mINSERT INTO "countries" ("name", "population", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Greece"], ["population", 10720000], ["created_at", "2022-04-26 13:43:19.521314"], ["updated_at", "2022-04-26 13:43:19.521314"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Create (0.2ms)[0m  [1m[32mINSERT INTO "countries" ("name", "population", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colombia"], ["population", 50880000], ["created_at", "2022-04-26 13:43:19.525566"], ["updated_at", "2022-04-26 13:43:19.525566"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Create (0.2ms)[0m  [1m[32mINSERT INTO "countries" ("name", "population", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Switzerland"], ["population", 8637000], ["created_at", "2022-04-26 13:43:19.528860"], ["updated_at", "2022-04-26 13:43:19.528860"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Create (0.2ms)[0m  [1m[32mINSERT INTO "countries" ("name", "population", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ethiopia"], ["population", 115000000], ["created_at", "2022-04-26 13:43:19.532351"], ["updated_at", "2022-04-26 13:43:19.532351"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Create (0.1ms)[0m  [1m[32mINSERT INTO "countries" ("name", "population", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "India"], ["population", 1380000000], ["created_at", "2022-04-26 13:43:19.536003"], ["updated_at", "2022-04-26 13:43:19.536003"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Create (0.1ms)[0m  [1m[32mINSERT INTO "countries" ("name", "population", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "China"], ["population", 1402000000], ["created_at", "2022-04-26 13:43:19.538826"], ["updated_at", "2022-04-26 13:43:19.538826"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Lynn Kuhn"], ["created_at", "2022-04-26 13:43:20.322505"], ["updated_at", "2022-04-26 13:43:20.322505"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "1"], ["country_id", "5"], ["created_at", "2022-04-26 13:43:20.341326"], ["updated_at", "2022-04-26 13:43:20.341326"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Sen. Gertie Anderson"], ["created_at", "2022-04-26 13:43:20.345083"], ["updated_at", "2022-04-26 13:43:20.345083"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "2"], ["country_id", "6"], ["created_at", "2022-04-26 13:43:20.348865"], ["updated_at", "2022-04-26 13:43:20.348865"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rep. Dana Mante"], ["created_at", "2022-04-26 13:43:20.352434"], ["updated_at", "2022-04-26 13:43:20.352434"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "3"], ["country_id", "2"], ["created_at", "2022-04-26 13:43:20.356093"], ["updated_at", "2022-04-26 13:43:20.356093"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jonelle Von"], ["created_at", "2022-04-26 13:43:20.359676"], ["updated_at", "2022-04-26 13:43:20.359676"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.2ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "4"], ["country_id", "4"], ["created_at", "2022-04-26 13:43:20.363565"], ["updated_at", "2022-04-26 13:43:20.363565"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.2ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Esteban Kirlin"], ["created_at", "2022-04-26 13:43:20.367316"], ["updated_at", "2022-04-26 13:43:20.367316"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "5"], ["country_id", "1"], ["created_at", "2022-04-26 13:43:20.371029"], ["updated_at", "2022-04-26 13:43:20.371029"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kia Dare"], ["created_at", "2022-04-26 13:43:20.373980"], ["updated_at", "2022-04-26 13:43:20.373980"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "6"], ["country_id", "6"], ["created_at", "2022-04-26 13:43:20.377227"], ["updated_at", "2022-04-26 13:43:20.377227"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Juliane Torphy"], ["created_at", "2022-04-26 13:43:20.380198"], ["updated_at", "2022-04-26 13:43:20.380198"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "7"], ["country_id", "6"], ["created_at", "2022-04-26 13:43:20.383817"], ["updated_at", "2022-04-26 13:43:20.383817"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Evan Cormier"], ["created_at", "2022-04-26 13:43:20.386911"], ["updated_at", "2022-04-26 13:43:20.386911"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "8"], ["country_id", "1"], ["created_at", "2022-04-26 13:43:20.390232"], ["updated_at", "2022-04-26 13:43:20.390232"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dr. Shon Wolf"], ["created_at", "2022-04-26 13:43:20.393167"], ["updated_at", "2022-04-26 13:43:20.393167"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "9"], ["country_id", "7"], ["created_at", "2022-04-26 13:43:20.396577"], ["updated_at", "2022-04-26 13:43:20.396577"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Warren Mueller Jr."], ["created_at", "2022-04-26 13:43:20.399771"], ["updated_at", "2022-04-26 13:43:20.399771"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "10"], ["country_id", "3"], ["created_at", "2022-04-26 13:43:20.403302"], ["updated_at", "2022-04-26 13:43:20.403302"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pres. Tracy Abbott"], ["created_at", "2022-04-26 13:43:20.406352"], ["updated_at", "2022-04-26 13:43:20.406352"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "11"], ["country_id", "1"], ["created_at", "2022-04-26 13:43:20.409571"], ["updated_at", "2022-04-26 13:43:20.409571"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Regina Koepp"], ["created_at", "2022-04-26 13:43:20.412593"], ["updated_at", "2022-04-26 13:43:20.412593"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "12"], ["country_id", "3"], ["created_at", "2022-04-26 13:43:20.415820"], ["updated_at", "2022-04-26 13:43:20.415820"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "The Hon. Sana Kirlin"], ["created_at", "2022-04-26 13:43:20.418770"], ["updated_at", "2022-04-26 13:43:20.418770"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "13"], ["country_id", "6"], ["created_at", "2022-04-26 13:43:20.421985"], ["updated_at", "2022-04-26 13:43:20.421985"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Tressa Wisozk"], ["created_at", "2022-04-26 13:43:20.424836"], ["updated_at", "2022-04-26 13:43:20.424836"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "14"], ["country_id", "2"], ["created_at", "2022-04-26 13:43:20.428043"], ["updated_at", "2022-04-26 13:43:20.428043"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Berry Nader"], ["created_at", "2022-04-26 13:43:20.431065"], ["updated_at", "2022-04-26 13:43:20.431065"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassport Create (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("citizen_id", "country_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["citizen_id", "15"], ["country_id", "1"], ["created_at", "2022-04-26 13:43:20.435011"], ["updated_at", "2022-04-26 13:43:20.435011"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports"[0m
+Started GET "/countries" for 127.0.0.1 at 2022-04-26 09:54:59 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CountriesController#index as HTML
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  ↳ app/controllers/countries_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 21621)
+
+
+Started GET "/citizens" for 127.0.0.1 at 2022-04-26 09:55:09 -0400
+Processing by CitizensController#index as HTML
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 5028)
+
+
+Started GET "/citizens" for 127.0.0.1 at 2022-04-26 09:55:33 -0400
+Processing by CitizensController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 5767)
+
+
+Started GET "/citizens" for 127.0.0.1 at 2022-04-26 09:55:45 -0400
+Processing by CitizensController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.5ms | Allocations: 5767)
+
+
+Started GET "/citizens" for 127.0.0.1 at 2022-04-26 09:55:51 -0400
+Processing by CitizensController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 5767)
+
+
+Started GET "/citizens/1" for 127.0.0.1 at 2022-04-26 09:56:11 -0400
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:15:in `find_citizen'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 3805)
+
+
+  
+NameError (undefined local variable or method `citizen' for #<CitizensController:0x00000000013240>
+Did you mean?  @citizen):
+  
+app/controllers/citizens_controller.rb:9:in `show'
+Started GET "/citizens/1" for 127.0.0.1 at 2022-04-26 09:56:24 -0400
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:15:in `find_citizen'
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:15:in `find_citizen'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "1"]]
+  ↳ app/controllers/citizens_controller.rb:9:in `show'
+Completed 200 OK in 20ms (Views: 10.3ms | ActiveRecord: 0.9ms | Allocations: 16168)
+
+
+Started GET "/citizens/1" for 127.0.0.1 at 2022-04-26 09:56:37 -0400
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:15:in `find_citizen'
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:15:in `find_citizen'
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "1"]]
+  ↳ app/controllers/citizens_controller.rb:9:in `show'
+Completed 200 OK in 15ms (Views: 10.2ms | ActiveRecord: 1.0ms | Allocations: 13960)
+
+
+Started GET "/citizens" for 127.0.0.1 at 2022-04-26 09:57:00 -0400
+Processing by CitizensController#index as HTML
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms | Allocations: 2102)
+
+
+Started GET "/citizens" for 127.0.0.1 at 2022-04-26 09:57:21 -0400
+Processing by CitizensController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "1"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "2"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "3"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "4"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "5"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "6"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "7"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "8"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "9"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "10"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "11"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "12"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "13"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "14"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+  [1m[36mCountry Load (0.0ms)[0m  [1m[34mSELECT "countries".* FROM "countries" INNER JOIN "passports" ON "countries"."id" = "passports"."country_id" WHERE "passports"."citizen_id" = ?[0m  [["citizen_id", "15"]]
+  ↳ app/controllers/citizens_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 1.6ms | Allocations: 26639)
+
+
+Started GET "/countries/2" for 127.0.0.1 at 2022-04-26 09:58:09 -0400
+Processing by CountriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/countries_controller.rb:15:in `find_country'
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/countries_controller.rb:15:in `find_country'
+  [1m[36mCitizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" INNER JOIN "passports" ON "citizens"."id" = "passports"."citizen_id" WHERE "passports"."country_id" = ?[0m  [["country_id", "2"]]
+  ↳ app/controllers/countries_controller.rb:9:in `show'
+Completed 200 OK in 11ms (Views: 5.7ms | ActiveRecord: 1.0ms | Allocations: 11032)
+
+
+Started GET "/countries/1" for 127.0.0.1 at 2022-04-26 09:58:13 -0400
+Processing by CountriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/countries_controller.rb:15:in `find_country'
+  [1m[36mCitizen Load (0.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" INNER JOIN "passports" ON "citizens"."id" = "passports"."citizen_id" WHERE "passports"."country_id" = ?[0m  [["country_id", "1"]]
+  ↳ app/controllers/countries_controller.rb:9:in `show'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 1880)
+
+
+Started GET "/countries" for 127.0.0.1 at 2022-04-26 09:58:19 -0400
+Processing by CountriesController#index as HTML
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  ↳ app/controllers/countries_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 1355)
+
+
+Started DELETE "/passports/1" for ::1 at 2022-04-26 11:01:23 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PassportsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/passports_controller.rb:13:in `find_passport'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/passports_controller.rb:6:in `destroy'
+  [1m[36mPassport Destroy (0.1ms)[0m  [1m[31mDELETE FROM "passports" WHERE "passports"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/passports_controller.rb:6:in `destroy'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/passports_controller.rb:6:in `destroy'
+Completed 202 Accepted in 14ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 24265)
+
+
+Started DELETE "/passports/1" for ::1 at 2022-04-26 11:07:49 -0400
+Processing by PassportsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/passports_controller.rb:14:in `find_passport'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/passports_controller.rb:14:in `find_passport'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.3ms | Allocations: 3242)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Passport with 'id'=1):
+  
+app/controllers/passports_controller.rb:14:in `find_passport'
+Started DELETE "/passports/1" for ::1 at 2022-04-26 11:10:22 -0400
+Processing by PassportsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/passports_controller.rb:15:in `find_passport'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/passports_controller.rb:15:in `find_passport'
+Completed 404 Not Found in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 3637)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started POST "/citizens" for ::1 at 2022-04-26 11:16:29 -0400
+Processing by CitizensController#create as */*
+Completed 204 No Content in 0ms (Allocations: 70)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 11:18:36 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CitizensController#create as */*
+  Parameters: {"name"=>"Noah", "citizen"=>{"name"=>"Noah"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 1967)
+
+
+  
+NameError (undefined local variable or method `debug' for #<CitizensController:0x00000000016cb0>
+Did you mean?  debugger):
+  
+app/controllers/citizens_controller.rb:13:in `create'
+Started POST "/citizens" for ::1 at 2022-04-26 11:18:44 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CitizensController#create as */*
+  Parameters: {"name"=>"Noah", "citizen"=>{"name"=>"Noah"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+  [1m[36mCitizen Create (0.3ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Noah"], ["created_at", "2022-04-26 15:20:57.956807"], ["updated_at", "2022-04-26 15:20:57.956807"]]
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+[31mUnpermitted parameter: :citizen. Context: { controller: CitizensController, action: create, request: #<ActionDispatch::Request:0x000056433006ed88>, params: {"name"=>"Noah", "controller"=>"citizens", "action"=>"create", "citizen"=>{"name"=>"Noah"}} }[0m
+[31mUnpermitted parameter: :citizen. Context: { controller: CitizensController, action: create, request: #<ActionDispatch::Request:0x000056433006ed88>, params: {"name"=>"Noah", "controller"=>"citizens", "action"=>"create", "citizen"=>{"name"=>"Noah"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+  [1m[36mCitizen Create (0.3ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Noah"], ["created_at", "2022-04-26 15:22:35.139933"], ["updated_at", "2022-04-26 15:22:35.139933"]]
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+[31mUnpermitted parameters: :name, :citizen. Context: { controller: CitizensController, action: create, request: #<ActionDispatch::Request:0x000056433006ed88>, params: {"name"=>"Noah", "controller"=>"citizens", "action"=>"create", "citizen"=>{"name"=>"Noah"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+  [1m[36mCitizen Create (0.2ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", nil], ["created_at", "2022-04-26 15:23:42.856314"], ["updated_at", "2022-04-26 15:23:42.856314"]]
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `create'
+Completed 204 No Content in 389122ms (ActiveRecord: 19.5ms | Allocations: 299116)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 11:27:24 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CitizensController#create as */*
+  Parameters: {"name"=>"Sarah", "citizen"=>{"name"=>"Sarah"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+  [1m[36mCitizen Create (0.2ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Sarah"], ["created_at", "2022-04-26 15:27:24.402878"], ["updated_at", "2022-04-26 15:27:24.402878"]]
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+Completed 201 Created in 6ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 2657)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 11:30:35 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.4ms | Allocations: 170)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: citizen):
+  
+app/controllers/citizens_controller.rb:24:in `citizen_params'
+app/controllers/citizens_controller.rb:13:in `create'
+Started POST "/citizens" for ::1 at 2022-04-26 11:30:57 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>""}}
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1107)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 11:32:06 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>""}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+Completed 422 Unprocessable Entity in 145ms (ActiveRecord: 0.5ms | Allocations: 347131)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Name can't be blank):
+  
+app/controllers/citizens_controller.rb:13:in `create'
+Started POST "/citizens" for ::1 at 2022-04-26 11:36:31 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>""}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 1428583ms (ActiveRecord: 0.4ms | Allocations: 199692)
+
+
+  
+SystemExit (exit):
+  
+(rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `exit'
+(rdbg)//home/chett/Documents/Flatiron/022122-nyc-study-halls/phase-4/02-strong-params-and-validations/app/controllers/citizens_controller.rb:1:in `render_invalid'
+app/controllers/citizens_controller.rb:29:in `render_invalid'
+Started POST "/citizens" for ::1 at 2022-04-26 12:01:47 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>""}}
+Completed 200 OK in 106ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 364866)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 12:01:58 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>"A"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+  [1m[36mCitizen Create (0.2ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "A"], ["created_at", "2022-04-26 16:01:58.333891"], ["updated_at", "2022-04-26 16:01:58.333891"]]
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 6.0ms | Allocations: 2010)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 12:02:07 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>"Ayy"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1242)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 12:02:19 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>"Ayy"}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+  [1m[36mCitizen Create (0.1ms)[0m  [1m[32mINSERT INTO "citizens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ayy"], ["created_at", "2022-04-26 16:02:19.599838"], ["updated_at", "2022-04-26 16:02:19.599838"]]
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+Completed 201 Created in 6ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 3576)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 12:02:50 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>"Ayyy"}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2854)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 12:03:07 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>""}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1995)
+
+
+Started POST "/citizens" for ::1 at 2022-04-26 12:04:31 -0400
+  
+ArgumentError (Unknown validator: 'MessageValidator'):
+  
+app/models/citizen.rb:6:in `<class:Citizen>'
+app/models/citizen.rb:1:in `<main>'
+Started POST "/citizens" for ::1 at 2022-04-26 12:04:58 -0400
+Processing by CitizensController#create as */*
+  Parameters: {"citizen"=>{"name"=>""}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/citizens_controller.rb:13:in `create'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 3426)
+
+
