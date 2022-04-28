@@ -1,0 +1,1129 @@
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVacationSpots (20220427143651)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "vacation_spots" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "weather" varchar, "hours_from_here" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220427143651"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-27 14:40:26.626750"], ["updated_at", "2022-04-27 14:40:26.626750"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dominican Republic"], ["weather", "HOT"], ["hours_from_here", 3], ["created_at", "2022-04-27 14:42:57.178945"], ["updated_at", "2022-04-27 14:42:57.178945"]]
+  [1m[36mTRANSACTION (28.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Phillippines"], ["weather", "ALSO HOT"], ["hours_from_here", 24], ["created_at", "2022-04-27 14:42:57.210927"], ["updated_at", "2022-04-27 14:42:57.210927"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Space"], ["weather", "none"], ["hours_from_here", 1], ["created_at", "2022-04-27 14:42:57.217968"], ["updated_at", "2022-04-27 14:42:57.217968"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/vacation_spots" for ::1 at 2022-04-27 10:52:45 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"citizen"=>{"name"=>""}, "vacation_spot"=>{}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 3.7ms | ActiveRecord: 0.5ms | Allocations: 18829)
+
+
+Started GET "/vacation_spots/1" for ::1 at 2022-04-27 10:53:01 -0400
+Processing by VacationSpotsController#show as */*
+  Parameters: {"citizen"=>{"name"=>""}, "id"=>"1", "vacation_spot"=>{}}
+  [1m[36mVacationSpot Load (0.2ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:15:in `find_vacation_spot'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1278)
+
+
+Started GET "/vacation_spots/9999999" for ::1 at 2022-04-27 10:53:09 -0400
+Processing by VacationSpotsController#show as */*
+  Parameters: {"citizen"=>{"name"=>""}, "id"=>"9999999", "vacation_spot"=>{}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 9999999], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:15:in `find_vacation_spot'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 511)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find VacationSpot with 'id'=9999999):
+  
+app/controllers/vacation_spots_controller.rb:15:in `find_vacation_spot'
+Started POST "/vacation_spots%20" for ::1 at 2022-04-27 10:57:09 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/vacation_spots%20"):
+  
+Started POST "/vacation_spots%20" for ::1 at 2022-04-27 10:57:47 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/vacation_spots%20"):
+  
+Started POST "/vacation_spots%20" for ::1 at 2022-04-27 10:58:03 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/vacation_spots%20"):
+  
+Started POST "/vacation_spots" for ::1 at 2022-04-27 11:00:20 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationSpotsController#create as */*
+  Parameters: {"name"=>"Jamaica", "weather"=>"IT'S HOT", "hours_from_here"=>3, "vacation_spot"=>{"name"=>"Jamaica", "weather"=>"IT'S HOT", "hours_from_here"=>3}}
+[31mUnpermitted parameter: :vacation_spot. Context: { controller: VacationSpotsController, action: create, request: #<ActionDispatch::Request:0x00007f90d88e3468>, params: {"name"=>"Jamaica", "weather"=>"IT'S HOT", "hours_from_here"=>3, "controller"=>"vacation_spots", "action"=>"create", "vacation_spot"=>{"name"=>"Jamaica", "weather"=>"IT'S HOT", "hours_from_here"=>3}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:13:in `create'
+  [1m[36mVacationSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jamaica"], ["weather", "IT'S HOT"], ["hours_from_here", 3], ["created_at", "2022-04-27 15:00:20.979925"], ["updated_at", "2022-04-27 15:00:20.979925"]]
+  ↳ app/controllers/vacation_spots_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:13:in `create'
+Completed 201 Created in 28ms (Views: 0.9ms | ActiveRecord: 4.5ms | Allocations: 21109)
+
+
+Started POST "/vacation_spots" for ::1 at 2022-04-27 11:08:22 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#create as */*
+  Parameters: {"name"=>"Alaska", "weather"=>"COLD", "hours_from_here"=>7, "vacation_spot"=>{"name"=>"Alaska", "weather"=>"COLD", "hours_from_here"=>7}}
+[31mUnpermitted parameter: :vacation_spot. Context: { controller: VacationSpotsController, action: create, request: #<ActionDispatch::Request:0x00007f90d8a818b0>, params: {"name"=>"Alaska", "weather"=>"COLD", "hours_from_here"=>7, "controller"=>"vacation_spots", "action"=>"create", "vacation_spot"=>{"name"=>"Alaska", "weather"=>"COLD", "hours_from_here"=>7}} }[0m
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.2ms | Allocations: 4025)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Weather COLD is not hot, cold, or warm):
+  
+app/controllers/vacation_spots_controller.rb:13:in `create'
+Started POST "/vacation_spots" for ::1 at 2022-04-27 11:11:51 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#create as */*
+  Parameters: {"name"=>"Alaska", "weather"=>"cold", "hours_from_here"=>7, "vacation_spot"=>{"name"=>"Alaska", "weather"=>"cold", "hours_from_here"=>7}}
+[31mUnpermitted parameter: :vacation_spot. Context: { controller: VacationSpotsController, action: create, request: #<ActionDispatch::Request:0x00007f90c00cb590>, params: {"name"=>"Alaska", "weather"=>"cold", "hours_from_here"=>7, "controller"=>"vacation_spots", "action"=>"create", "vacation_spot"=>{"name"=>"Alaska", "weather"=>"cold", "hours_from_here"=>7}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:13:in `create'
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Alaska"], ["weather", "cold"], ["hours_from_here", 7], ["created_at", "2022-04-27 15:11:51.239365"], ["updated_at", "2022-04-27 15:11:51.239365"]]
+  ↳ app/controllers/vacation_spots_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:13:in `create'
+Completed 201 Created in 6ms (Views: 0.2ms | ActiveRecord: 3.7ms | Allocations: 2982)
+
+
+Started POST "/vacation_spots" for ::1 at 2022-04-27 11:11:58 -0400
+Processing by VacationSpotsController#create as */*
+  Parameters: {"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7, "vacation_spot"=>{"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7}}
+[31mUnpermitted parameter: :vacation_spot. Context: { controller: VacationSpotsController, action: create, request: #<ActionDispatch::Request:0x00007f90c0190e08>, params: {"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7, "controller"=>"vacation_spots", "action"=>"create", "vacation_spot"=>{"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7}} }[0m
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 666)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Weather blarg is not hot, cold, or warm):
+  
+app/controllers/vacation_spots_controller.rb:13:in `create'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started POST "/vacation_spots" for ::1 at 2022-04-27 11:17:18 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#create as */*
+  Parameters: {"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7, "vacation_spot"=>{"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7}}
+[31mUnpermitted parameter: :vacation_spot. Context: { controller: VacationSpotsController, action: create, request: #<ActionDispatch::Request:0x00007f90ccbe84a8>, params: {"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7, "controller"=>"vacation_spots", "action"=>"create", "vacation_spot"=>{"name"=>"Alaska", "weather"=>"blarg", "hours_from_here"=>7}} }[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2108)
+
+
+Started PATCH "/vacation_spots/3" for ::1 at 2022-04-27 11:22:44 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#update as */*
+  Parameters: {"weather"=>"cold", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:25:in `find_vacation_spot'
+[31mUnpermitted parameters: :id, :vacation_spot. Context: { controller: VacationSpotsController, action: update, request: #<ActionDispatch::Request:0x00007f90d43e6f18>, params: {"weather"=>"cold", "controller"=>"vacation_spots", "action"=>"update", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:18:in `update'
+  [1m[36mVacationSpot Update (0.1ms)[0m  [1m[33mUPDATE "vacation_spots" SET "weather" = ?, "updated_at" = ? WHERE "vacation_spots"."id" = ?[0m  [["weather", "cold"], ["updated_at", "2022-04-27 15:22:44.816245"], ["id", 3]]
+  ↳ app/controllers/vacation_spots_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:18:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.2ms | Allocations: 3950)
+
+
+Started PATCH "/vacation_spots/3" for ::1 at 2022-04-27 11:23:23 -0400
+Processing by VacationSpotsController#update as */*
+  Parameters: {"weather"=>"meteors and stuff", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors and stuff"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:25:in `find_vacation_spot'
+[31mUnpermitted parameters: :id, :vacation_spot. Context: { controller: VacationSpotsController, action: update, request: #<ActionDispatch::Request:0x00007f90c005ee68>, params: {"weather"=>"meteors and stuff", "controller"=>"vacation_spots", "action"=>"update", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors and stuff"}} }[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1449)
+
+
+Started PATCH "/vacation_spots/3" for ::1 at 2022-04-27 11:29:49 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#update as */*
+  Parameters: {"weather"=>"cold", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[31mUnpermitted parameters: :id, :vacation_spot. Context: { controller: VacationSpotsController, action: update, request: #<ActionDispatch::Request:0x00007f90d455f070>, params: {"weather"=>"cold", "controller"=>"vacation_spots", "action"=>"update", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}} }[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 1907)
+
+
+  
+ArgumentError (Unrecognized status code :updated):
+  
+app/controllers/vacation_spots_controller.rb:19:in `update'
+Started PATCH "/vacation_spots/3" for ::1 at 2022-04-27 11:30:02 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#update as */*
+  Parameters: {"weather"=>"cold", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[31mUnpermitted parameters: :id, :vacation_spot. Context: { controller: VacationSpotsController, action: update, request: #<ActionDispatch::Request:0x00007f90c80e3a70>, params: {"weather"=>"cold", "controller"=>"vacation_spots", "action"=>"update", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}} }[0m
+Completed 202 Accepted in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 2074)
+
+
+Started PATCH "/vacation_spots/3" for ::1 at 2022-04-27 11:40:33 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#update as */*
+  Parameters: {"weather"=>"cold", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[31mUnpermitted parameters: :id, :vacation_spot. Context: { controller: VacationSpotsController, action: update, request: #<ActionDispatch::Request:0x00007f90c42d9ec8>, params: {"weather"=>"cold", "controller"=>"vacation_spots", "action"=>"update", "id"=>"3", "vacation_spot"=>{"weather"=>"cold"}} }[0m
+Completed 202 Accepted in 456493ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 595603)
+
+
+Started PATCH "/vacation_spots/3" for ::1 at 2022-04-27 11:48:23 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#update as */*
+  Parameters: {"weather"=>"so cold!", "id"=>"3", "vacation_spot"=>{"weather"=>"so cold!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[31mUnpermitted parameters: :id, :vacation_spot. Context: { controller: VacationSpotsController, action: update, request: #<ActionDispatch::Request:0x00007f90cc811550>, params: {"weather"=>"so cold!", "controller"=>"vacation_spots", "action"=>"update", "id"=>"3", "vacation_spot"=>{"weather"=>"so cold!"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:18:in `update'
+  [1m[36mVacationSpot Update (0.1ms)[0m  [1m[33mUPDATE "vacation_spots" SET "weather" = ?, "updated_at" = ? WHERE "vacation_spots"."id" = ?[0m  [["weather", "so cold!"], ["updated_at", "2022-04-27 15:48:23.954141"], ["id", 3]]
+  ↳ app/controllers/vacation_spots_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vacation_spots_controller.rb:18:in `update'
+Completed 202 Accepted in 6ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 3573)
+
+
+Started PATCH "/vacation_spots/3" for ::1 at 2022-04-27 11:48:33 -0400
+Processing by VacationSpotsController#update as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[31mUnpermitted parameters: :id, :vacation_spot. Context: { controller: VacationSpotsController, action: update, request: #<ActionDispatch::Request:0x00007f90d89e9948>, params: {"weather"=>"meteors!", "controller"=>"vacation_spots", "action"=>"update", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors!"}} }[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1104)
+
+
+Started GET "/vacation_spots/3" for ::1 at 2022-04-27 11:52:16 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1836)
+
+
+Started GET "/vacation_spots" for ::1 at 2022-04-27 11:52:24 -0400
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1010)
+
+
+Started GET "/vacation_spots" for ::1 at 2022-04-27 11:55:19 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.2ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+No serializer found for resource: #<VacationSpot id: 1, name: "Dominican Republic", weather: "HOT", hours_from_here: 3, created_at: "2022-04-27 14:42:57.178945000 +0000", updated_at: "2022-04-27 14:42:57.178945000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with VacationSpot::ActiveRecord_Relation (0.83ms)
+Completed 200 OK in 29ms (Views: 12.6ms | ActiveRecord: 1.6ms | Allocations: 19274)
+
+
+Started GET "/vacation_spots" for ::1 at 2022-04-27 11:55:37 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+[active_model_serializers] Rendered VacationSpotsSerializer with ActiveModelSerializers::Adapter::Attributes (1.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 3034)
+
+
+  
+NoMethodError (undefined method `model_name' for VacationSpot::ActiveRecord_Relation:Class
+Did you mean?  module_parent):
+  
+app/controllers/vacation_spots_controller.rb:5:in `index'
+Started GET "/vacation_spots/3" for ::1 at 2022-04-27 11:56:27 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[active_model_serializers] Rendered VacationSpotsSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 2522)
+
+
+Started GET "/vacation_spots/3" for ::1 at 2022-04-27 11:56:53 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[active_model_serializers] Rendered VacationSpotsSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 2023)
+
+
+Started GET "/vacation_spots/3" for ::1 at 2022-04-27 11:58:19 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationSpotsController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[active_model_serializers] Rendered VacationSpotSerializer with ActiveModelSerializers::Adapter::Attributes (0.18ms)
+Completed 200 OK in 25ms (Views: 2.5ms | ActiveRecord: 0.5ms | Allocations: 20022)
+
+
+Started GET "/vacation_spots" for ::1 at 2022-04-27 11:58:36 -0400
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.2ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 1274)
+
+
+Started GET "/vacation_spots/3" for ::1 at 2022-04-27 11:59:22 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"3", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[active_model_serializers] Rendered VacationSpotSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.7ms | Allocations: 2102)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVacationSpots (20220427143651)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "vacation_spots" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "weather" varchar, "hours_from_here" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220427143651"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateVacations (20220428143339)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "arrival" varchar, "departure" varchar, "vacation_spot_id" integer, "person_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220428143339"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePeople (20220428143350)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "people" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220428143350"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-28 14:40:07.698355"], ["updated_at", "2022-04-28 14:40:07.698355"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dominican Republic"], ["weather", "hot"], ["hours_from_here", 3], ["created_at", "2022-04-28 14:41:53.409212"], ["updated_at", "2022-04-28 14:41:53.409212"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Phillippines"], ["weather", "warm"], ["hours_from_here", 24], ["created_at", "2022-04-28 14:41:53.412872"], ["updated_at", "2022-04-28 14:41:53.412872"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Space"], ["weather", "cold"], ["hours_from_here", 1], ["created_at", "2022-04-28 14:41:53.416562"], ["updated_at", "2022-04-28 14:41:53.416562"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chett"], ["created_at", "2022-04-28 14:41:53.421108"], ["updated_at", "2022-04-28 14:41:53.421108"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.2ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Octavia"], ["created_at", "2022-04-28 14:41:53.424354"], ["updated_at", "2022-04-28 14:41:53.424354"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.2ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ursula"], ["created_at", "2022-04-28 14:41:53.428144"], ["updated_at", "2022-04-28 14:41:53.428144"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.2ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Monday"], ["departure", "Friday"], ["vacation_spot_id", 1], ["person_id", 1], ["created_at", "2022-04-28 14:41:53.439487"], ["updated_at", "2022-04-28 14:41:53.439487"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Tuesday"], ["departure", "Thursday"], ["vacation_spot_id", 2], ["person_id", 2], ["created_at", "2022-04-28 14:41:53.444759"], ["updated_at", "2022-04-28 14:41:53.444759"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVacationSpot Load (0.0ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Wednesday"], ["departure", "Same day"], ["vacation_spot_id", 3], ["person_id", 1], ["created_at", "2022-04-28 14:41:53.448747"], ["updated_at", "2022-04-28 14:41:53.448747"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Destroy (0.1ms)[0m  [1m[31mDELETE FROM "vacation_spots" WHERE "vacation_spots"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Destroy (0.1ms)[0m  [1m[31mDELETE FROM "vacation_spots" WHERE "vacation_spots"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Destroy (0.2ms)[0m  [1m[31mDELETE FROM "vacation_spots" WHERE "vacation_spots"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Destroy (0.1ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Destroy (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Destroy (0.1ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dominican Republic"], ["weather", "hot"], ["hours_from_here", 3], ["created_at", "2022-04-28 14:48:40.808311"], ["updated_at", "2022-04-28 14:48:40.808311"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Phillippines"], ["weather", "warm"], ["hours_from_here", 24], ["created_at", "2022-04-28 14:48:40.811624"], ["updated_at", "2022-04-28 14:48:40.811624"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Space"], ["weather", "cold"], ["hours_from_here", 1], ["created_at", "2022-04-28 14:48:40.814764"], ["updated_at", "2022-04-28 14:48:40.814764"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Maldives"], ["weather", "hottest"], ["hours_from_here", 12], ["created_at", "2022-04-28 14:48:40.818124"], ["updated_at", "2022-04-28 14:48:40.818124"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.2ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chett"], ["created_at", "2022-04-28 14:48:40.822615"], ["updated_at", "2022-04-28 14:48:40.822615"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Octavia"], ["created_at", "2022-04-28 14:48:40.826263"], ["updated_at", "2022-04-28 14:48:40.826263"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ursula"], ["created_at", "2022-04-28 14:48:40.829376"], ["updated_at", "2022-04-28 14:48:40.829376"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Daniel"], ["created_at", "2022-04-28 14:48:40.832050"], ["updated_at", "2022-04-28 14:48:40.832050"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.2ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Monday"], ["departure", "Friday"], ["vacation_spot_id", 4], ["person_id", 4], ["created_at", "2022-04-28 14:48:40.843654"], ["updated_at", "2022-04-28 14:48:40.843654"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Tuesday"], ["departure", "Thursday"], ["vacation_spot_id", 5], ["person_id", 5], ["created_at", "2022-04-28 14:48:40.848323"], ["updated_at", "2022-04-28 14:48:40.848323"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVacationSpot Load (0.0ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.2ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Wednesday"], ["departure", "Same day"], ["vacation_spot_id", 6], ["person_id", 4], ["created_at", "2022-04-28 14:48:40.852438"], ["updated_at", "2022-04-28 14:48:40.852438"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[36mVacationSpot Load (0.0ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Today"], ["departure", "never"], ["vacation_spot_id", 7], ["person_id", 7], ["created_at", "2022-04-28 14:48:40.857072"], ["updated_at", "2022-04-28 14:48:40.857072"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ?[0m  [["person_id", 7]]
+Started GET "/vacations" for ::1 at 2022-04-28 10:50:51 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation"=>{}}
+  [1m[36mVacation Load (0.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations"[0m
+  ↳ app/controllers/vacations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.8ms)
+Completed 200 OK in 29ms (Views: 9.8ms | ActiveRecord: 0.6ms | Allocations: 20403)
+
+
+Started GET "/people" for ::1 at 2022-04-28 10:51:21 -0400
+Processing by PeopleController#index as */*
+  Parameters: {"weather"=>"meteors!", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  ↳ app/controllers/people_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 3618)
+
+
+Started GET "/people/4" for ::1 at 2022-04-28 10:51:29 -0400
+Processing by PeopleController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"4", "person"=>{}}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/people_controller.rb:30:in `find_person'
+[active_model_serializers] Rendered PersonSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1334)
+
+
+Started GET "/people/7" for ::1 at 2022-04-28 10:51:35 -0400
+Processing by PeopleController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"7", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/people_controller.rb:30:in `find_person'
+[active_model_serializers] Rendered PersonSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 672)
+
+
+Started GET "/people/7/vacations" for ::1 at 2022-04-28 10:51:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/people/7/vacations"):
+  
+Started GET "/people/7/vacations" for ::1 at 2022-04-28 10:54:44 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"7", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations"[0m
+  ↳ app/controllers/vacations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.88ms)
+Completed 200 OK in 28ms (Views: 12.8ms | ActiveRecord: 1.2ms | Allocations: 20383)
+
+
+Started GET "/people/7/vacations" for ::1 at 2022-04-28 10:59:38 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"7", "vacation"=>{}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.04ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 655)
+
+
+Started GET "/people/7/vacations" for ::1 at 2022-04-28 11:00:04 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"7", "vacation"=>{}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.03ms)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 298)
+
+
+Started GET "/people/6/vacations" for ::1 at 2022-04-28 11:00:11 -0400
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"6", "vacation"=>{}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.03ms)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/people/3/vacations" for ::1 at 2022-04-28 11:00:16 -0400
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"3", "vacation"=>{}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.04ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 172)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVacationSpots (20220427143651)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "vacation_spots" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "weather" varchar, "hours_from_here" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220427143651"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateVacations (20220428143339)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "vacations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "arrival" varchar, "departure" varchar, "vacation_spot_id" integer, "person_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220428143339"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePeople (20220428143350)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "people" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220428143350"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-28 15:00:31.298784"], ["updated_at", "2022-04-28 15:00:31.298784"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dominican Republic"], ["weather", "hot"], ["hours_from_here", 3], ["created_at", "2022-04-28 15:00:31.315822"], ["updated_at", "2022-04-28 15:00:31.315822"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Phillippines"], ["weather", "warm"], ["hours_from_here", 24], ["created_at", "2022-04-28 15:00:31.319262"], ["updated_at", "2022-04-28 15:00:31.319262"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Space"], ["weather", "cold"], ["hours_from_here", 1], ["created_at", "2022-04-28 15:00:31.321943"], ["updated_at", "2022-04-28 15:00:31.321943"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacationSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "vacation_spots" ("name", "weather", "hours_from_here", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Maldives"], ["weather", "hottest"], ["hours_from_here", 12], ["created_at", "2022-04-28 15:00:31.324861"], ["updated_at", "2022-04-28 15:00:31.324861"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chett"], ["created_at", "2022-04-28 15:00:31.328528"], ["updated_at", "2022-04-28 15:00:31.328528"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Octavia"], ["created_at", "2022-04-28 15:00:31.331332"], ["updated_at", "2022-04-28 15:00:31.331332"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ursula"], ["created_at", "2022-04-28 15:00:31.333958"], ["updated_at", "2022-04-28 15:00:31.333958"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Create (0.1ms)[0m  [1m[32mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Daniel"], ["created_at", "2022-04-28 15:00:31.336900"], ["updated_at", "2022-04-28 15:00:31.336900"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Monday"], ["departure", "Friday"], ["vacation_spot_id", 1], ["person_id", 1], ["created_at", "2022-04-28 15:00:31.346992"], ["updated_at", "2022-04-28 15:00:31.346992"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Tuesday"], ["departure", "Thursday"], ["vacation_spot_id", 2], ["person_id", 2], ["created_at", "2022-04-28 15:00:31.351553"], ["updated_at", "2022-04-28 15:00:31.351553"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Wednesday"], ["departure", "Same day"], ["vacation_spot_id", 3], ["person_id", 1], ["created_at", "2022-04-28 15:00:31.360035"], ["updated_at", "2022-04-28 15:00:31.360035"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[36mVacationSpot Load (0.0ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" ORDER BY "vacation_spots"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVacation Create (0.1ms)[0m  [1m[32mINSERT INTO "vacations" ("arrival", "departure", "vacation_spot_id", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["arrival", "Today"], ["departure", "never"], ["vacation_spot_id", 4], ["person_id", 4], ["created_at", "2022-04-28 15:00:31.363936"], ["updated_at", "2022-04-28 15:00:31.363936"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/people/4/vacations" for ::1 at 2022-04-28 11:00:52 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"4", "vacation"=>{}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.06ms)
+Completed 200 OK in 18ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 14087)
+
+
+Started GET "/people/4/vacations" for ::1 at 2022-04-28 11:01:43 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"4", "vacation"=>{}}
+  [1m[36mVacation Load (0.3ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ?[0m  [["person_id", 4]]
+  ↳ app/controllers/vacations_controller.rb:5:in `index'
+  [1m[36mVacation Load (0.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ?[0m  [["person_id", 4]]
+  ↳ app/controllers/vacations_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.08ms)
+Completed 200 OK in 165556ms (Views: 1.0ms | ActiveRecord: 1.2ms | Allocations: 165282)
+
+
+Started GET "/people/4/vacations" for ::1 at 2022-04-28 11:04:37 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"4", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ?[0m  [["person_id", 4]]
+  ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.6ms | Allocations: 3021)
+
+
+Started GET "/people/4/vacations/4" for ::1 at 2022-04-28 11:04:51 -0400
+Processing by VacationsController#show as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"4", "id"=>"4", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ? AND "vacations"."id" = ? LIMIT ?[0m  [["person_id", 4], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:31:in `find_vacation'
+[active_model_serializers] Rendered VacationSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 912)
+
+
+Started GET "/people/4/vacations/3" for ::1 at 2022-04-28 11:04:55 -0400
+Processing by VacationsController#show as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"4", "id"=>"3", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ? AND "vacations"."id" = ? LIMIT ?[0m  [["person_id", 4], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:31:in `find_vacation'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 704)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vacation with 'id'=3 [WHERE "vacations"."person_id" = ?]):
+  
+app/controllers/vacations_controller.rb:31:in `find_vacation'
+Started GET "/vacations" for ::1 at 2022-04-28 11:07:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/vacations"):
+  
+Started GET "/people/4/vacations" for ::1 at 2022-04-28 11:07:32 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"4", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ?[0m  [["person_id", 4]]
+  ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 2442)
+
+
+Started GET "/vacations" for ::1 at 2022-04-28 11:08:42 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" IS NULL[0m
+  ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.04ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 877)
+
+
+Started GET "/vacations" for ::1 at 2022-04-28 11:10:02 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations"[0m
+  ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.7ms | Allocations: 2760)
+
+
+Started GET "/vacations/4" for ::1 at 2022-04-28 11:10:11 -0400
+Processing by VacationsController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"4", "vacation"=>{}}
+  [1m[36mVacation Load (0.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:31:in `find_vacation'
+[active_model_serializers] Rendered VacationSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "/people/hello/vacations/4" for ::1 at 2022-04-28 11:11:05 -0400
+Processing by VacationsController#show as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"hello", "id"=>"4", "vacation"=>{}}
+  [1m[36mVacation Load (0.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ? AND "vacations"."id" = ? LIMIT ?[0m  [["person_id", nil], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:31:in `find_vacation'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 703)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vacation with 'id'=4 [WHERE "vacations"."person_id" = ?]):
+  
+app/controllers/vacations_controller.rb:31:in `find_vacation'
+Started GET "/people/%20/vacations/4" for ::1 at 2022-04-28 11:11:19 -0400
+Processing by VacationsController#show as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>" ", "id"=>"4", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."person_id" = ? AND "vacations"."id" = ? LIMIT ?[0m  [["person_id", nil], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/vacations_controller.rb:31:in `find_vacation'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 683)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Vacation with 'id'=4 [WHERE "vacations"."person_id" = ?]):
+  
+app/controllers/vacations_controller.rb:31:in `find_vacation'
+Started GET "/people//vacations/4" for ::1 at 2022-04-28 11:11:30 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/people/vacations/4"):
+  
+Started GET "/people/3/vacations/4" for ::1 at 2022-04-28 11:13:25 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationsController#show as */*
+  Parameters: {"weather"=>"meteors!", "person_id"=>"3", "id"=>"4", "vacation"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.4ms | Allocations: 615)
+
+
+  
+NoMethodError (undefined method `find' for nil:NilClass):
+  
+app/controllers/vacations_controller.rb:31:in `find_vacation'
+Started GET "/vacation_spots" for ::1 at 2022-04-28 11:21:45 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 4444)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:21:57 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/vacation-spots"):
+  
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:23:07 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 2469)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:23:55 -0400
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms | Allocations: 1136)
+
+
+Started GET "/hamburger" for ::1 at 2022-04-28 11:24:15 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.8ms | Allocations: 2463)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:25:10 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.8ms | Allocations: 2551)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:25:21 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.7ms | Allocations: 2583)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:26:30 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 1, arrival: "Monday", departure: "Friday", vacation_spot_id: 1, person_id: 1, created_at: "2022-04-28 15:00:31.346992000 +0000", updated_at: "2022-04-28 15:00:31.346992000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 2, arrival: "Tuesday", departure: "Thursday", vacation_spot_id: 2, person_id: 2, created_at: "2022-04-28 15:00:31.351553000 +0000", updated_at: "2022-04-28 15:00:31.351553000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 3, arrival: "Wednesday", departure: "Same day", vacation_spot_id: 3, person_id: 1, created_at: "2022-04-28 15:00:31.360035000 +0000", updated_at: "2022-04-28 15:00:31.360035000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 4, arrival: "Today", departure: "never", vacation_spot_id: 4, person_id: 4, created_at: "2022-04-28 15:00:31.363936000 +0000", updated_at: "2022-04-28 15:00:31.363936000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 1, arrival: "Monday", departure: "Friday", vacation_spot_id: 1, person_id: 1, created_at: "2022-04-28 15:00:31.346992000 +0000", updated_at: "2022-04-28 15:00:31.346992000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 2, arrival: "Tuesday", departure: "Thursday", vacation_spot_id: 2, person_id: 2, created_at: "2022-04-28 15:00:31.351553000 +0000", updated_at: "2022-04-28 15:00:31.351553000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 3, arrival: "Wednesday", departure: "Same day", vacation_spot_id: 3, person_id: 1, created_at: "2022-04-28 15:00:31.360035000 +0000", updated_at: "2022-04-28 15:00:31.360035000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 4, arrival: "Today", departure: "never", vacation_spot_id: 4, person_id: 4, created_at: "2022-04-28 15:00:31.363936000 +0000", updated_at: "2022-04-28 15:00:31.363936000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.04ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 1.2ms | Allocations: 17498)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:27:50 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 1, arrival: "Monday", departure: "Friday", vacation_spot_id: 1, person_id: 1, created_at: "2022-04-28 15:00:31.346992000 +0000", updated_at: "2022-04-28 15:00:31.346992000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 2, arrival: "Tuesday", departure: "Thursday", vacation_spot_id: 2, person_id: 2, created_at: "2022-04-28 15:00:31.351553000 +0000", updated_at: "2022-04-28 15:00:31.351553000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 2, name: "Octavia", created_at: "2022-04-28 15:00:31.331332000 +0000", updated_at: "2022-04-28 15:00:31.331332000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 3, arrival: "Wednesday", departure: "Same day", vacation_spot_id: 3, person_id: 1, created_at: "2022-04-28 15:00:31.360035000 +0000", updated_at: "2022-04-28 15:00:31.360035000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 4, arrival: "Today", departure: "never", vacation_spot_id: 4, person_id: 4, created_at: "2022-04-28 15:00:31.363936000 +0000", updated_at: "2022-04-28 15:00:31.363936000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 4, name: "Daniel", created_at: "2022-04-28 15:00:31.336900000 +0000", updated_at: "2022-04-28 15:00:31.336900000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 1, arrival: "Monday", departure: "Friday", vacation_spot_id: 1, person_id: 1, created_at: "2022-04-28 15:00:31.346992000 +0000", updated_at: "2022-04-28 15:00:31.346992000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 2, arrival: "Tuesday", departure: "Thursday", vacation_spot_id: 2, person_id: 2, created_at: "2022-04-28 15:00:31.351553000 +0000", updated_at: "2022-04-28 15:00:31.351553000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 2, name: "Octavia", created_at: "2022-04-28 15:00:31.331332000 +0000", updated_at: "2022-04-28 15:00:31.331332000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 3, arrival: "Wednesday", departure: "Same day", vacation_spot_id: 3, person_id: 1, created_at: "2022-04-28 15:00:31.360035000 +0000", updated_at: "2022-04-28 15:00:31.360035000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 4, arrival: "Today", departure: "never", vacation_spot_id: 4, person_id: 4, created_at: "2022-04-28 15:00:31.363936000 +0000", updated_at: "2022-04-28 15:00:31.363936000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 4, name: "Daniel", created_at: "2022-04-28 15:00:31.336900000 +0000", updated_at: "2022-04-28 15:00:31.336900000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.32ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 1.9ms | Allocations: 23258)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:28:32 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 1, arrival: "Monday", departure: "Friday", vacation_spot_id: 1, person_id: 1, created_at: "2022-04-28 15:00:31.346992000 +0000", updated_at: "2022-04-28 15:00:31.346992000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 2, arrival: "Tuesday", departure: "Thursday", vacation_spot_id: 2, person_id: 2, created_at: "2022-04-28 15:00:31.351553000 +0000", updated_at: "2022-04-28 15:00:31.351553000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 2, name: "Octavia", created_at: "2022-04-28 15:00:31.331332000 +0000", updated_at: "2022-04-28 15:00:31.331332000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 3, arrival: "Wednesday", departure: "Same day", vacation_spot_id: 3, person_id: 1, created_at: "2022-04-28 15:00:31.360035000 +0000", updated_at: "2022-04-28 15:00:31.360035000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Vacation id: 4, arrival: "Today", departure: "never", vacation_spot_id: 4, person_id: 4, created_at: "2022-04-28 15:00:31.363936000 +0000", updated_at: "2022-04-28 15:00:31.363936000 +0000">
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 4, name: "Daniel", created_at: "2022-04-28 15:00:31.336900000 +0000", updated_at: "2022-04-28 15:00:31.336900000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 1, arrival: "Monday", departure: "Friday", vacation_spot_id: 1, person_id: 1, created_at: "2022-04-28 15:00:31.346992000 +0000", updated_at: "2022-04-28 15:00:31.346992000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 2, arrival: "Tuesday", departure: "Thursday", vacation_spot_id: 2, person_id: 2, created_at: "2022-04-28 15:00:31.351553000 +0000", updated_at: "2022-04-28 15:00:31.351553000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 2, name: "Octavia", created_at: "2022-04-28 15:00:31.331332000 +0000", updated_at: "2022-04-28 15:00:31.331332000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 3, arrival: "Wednesday", departure: "Same day", vacation_spot_id: 3, person_id: 1, created_at: "2022-04-28 15:00:31.360035000 +0000", updated_at: "2022-04-28 15:00:31.360035000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers] No serializer found for resource: #<Vacation id: 4, arrival: "Today", departure: "never", vacation_spot_id: 4, person_id: 4, created_at: "2022-04-28 15:00:31.363936000 +0000", updated_at: "2022-04-28 15:00:31.363936000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 4, name: "Daniel", created_at: "2022-04-28 15:00:31.336900000 +0000", updated_at: "2022-04-28 15:00:31.336900000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.24ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 1.7ms | Allocations: 20258)
+
+
+Started GET "/vacations" for ::1 at 2022-04-28 11:30:51 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation"=>{}}
+  [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations"[0m
+  ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mVacationSpot Load (0.0ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mVacationSpot Load (0.0ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mVacationSpot Load (0.0ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/vacations_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.03ms)
+Completed 200 OK in 41ms (Views: 23.4ms | ActiveRecord: 1.4ms | Allocations: 43314)
+
+
+Started GET "/vacation-spots/1" for ::1 at 2022-04-28 11:36:00 -0400
+Processing by VacationSpotsController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"1", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" WHERE "vacation_spots"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vacation_spots_controller.rb:30:in `find_vacation_spot'
+[active_model_serializers] Rendered VacationSpotShowSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 994)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:36:06 -0400
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.2ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.2ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 2, name: "Octavia", created_at: "2022-04-28 15:00:31.331332000 +0000", updated_at: "2022-04-28 15:00:31.331332000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] No serializer found for resource: #<Person id: 4, name: "Daniel", created_at: "2022-04-28 15:00:31.336900000 +0000", updated_at: "2022-04-28 15:00:31.336900000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 2, name: "Octavia", created_at: "2022-04-28 15:00:31.331332000 +0000", updated_at: "2022-04-28 15:00:31.331332000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 1, name: "Chett", created_at: "2022-04-28 15:00:31.328528000 +0000", updated_at: "2022-04-28 15:00:31.328528000 +0000">
+[active_model_serializers] No serializer found for resource: #<Person id: 4, name: "Daniel", created_at: "2022-04-28 15:00:31.336900000 +0000", updated_at: "2022-04-28 15:00:31.336900000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.97ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 1.0ms | Allocations: 15133)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:36:59 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.79ms)
+Completed 200 OK in 45ms (Views: 28.5ms | ActiveRecord: 1.5ms | Allocations: 47260)
+
+
+Started GET "/people" for ::1 at 2022-04-28 11:40:50 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PeopleController#index as */*
+  Parameters: {"weather"=>"meteors!", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  ↳ app/controllers/people_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 15ms (Views: 10.4ms | ActiveRecord: 0.5ms | Allocations: 18604)
+
+
+Started GET "/people/4" for ::1 at 2022-04-28 11:41:00 -0400
+Processing by PeopleController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"4", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/people_controller.rb:30:in `find_person'
+[active_model_serializers]   [1m[36mVacationSpot Load (0.2ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" INNER JOIN "vacations" ON "vacation_spots"."id" = "vacations"."vacation_spot_id" WHERE "vacations"."person_id" = ?[0m  [["person_id", 4]]
+[active_model_serializers]   ↳ app/controllers/people_controller.rb:9:in `show'
+[active_model_serializers] Rendered ShowPersonRouteAFewMoreWordsPandasSerializer with ActiveModelSerializers::Adapter::Attributes (24.75ms)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 0.8ms | Allocations: 18266)
+
+
+Started GET "/people/4" for ::1 at 2022-04-28 11:42:12 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PeopleController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"4", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/people_controller.rb:30:in `find_person'
+[active_model_serializers] Rendered ShowPersonRouteAFewMoreWordsPandasSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1761)
+
+
+Started GET "/people/4" for ::1 at 2022-04-28 11:42:26 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PeopleController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"4", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/people_controller.rb:30:in `find_person'
+[active_model_serializers] Rendered ShowPersonRouteAFewMoreWordsPandasSerializer with ActiveModelSerializers::Adapter::Attributes (7.16ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms | Allocations: 4837)
+
+
+  
+NoMethodError (undefined method `vacation_spot' for #<Person:0x00007f1fc0171150>
+Did you mean?  vacation_spots
+               vacation_spots=
+               vacation_spot_ids
+               vacations
+               vacation_ids
+               vacations=
+               vacation_ids=):
+  
+app/controllers/people_controller.rb:9:in `show'
+Started GET "/people/4" for ::1 at 2022-04-28 11:42:33 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PeopleController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"4", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/people_controller.rb:30:in `find_person'
+[active_model_serializers]   [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" INNER JOIN "vacations" ON "vacation_spots"."id" = "vacations"."vacation_spot_id" WHERE "vacations"."person_id" = ?[0m  [["person_id", 4]]
+[active_model_serializers]   ↳ app/controllers/people_controller.rb:9:in `show'
+[active_model_serializers] Rendered ShowPersonRouteAFewMoreWordsPandasSerializer with ActiveModelSerializers::Adapter::Attributes (6.74ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.9ms | Allocations: 9444)
+
+
+Started GET "/people/4" for ::1 at 2022-04-28 11:44:51 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PeopleController#show as */*
+  Parameters: {"weather"=>"meteors!", "id"=>"4", "person"=>{}}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" WHERE "people"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/people_controller.rb:30:in `find_person'
+[active_model_serializers]   [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots" INNER JOIN "vacations" ON "vacation_spots"."id" = "vacations"."vacation_spot_id" WHERE "vacations"."person_id" = ?[0m  [["person_id", 4]]
+[active_model_serializers]   ↳ app/controllers/people_controller.rb:9:in `show'
+[active_model_serializers] Rendered ShowPersonRouteAFewMoreWordsPandasSerializer with ActiveModelSerializers::Adapter::Attributes (22.59ms)
+Completed 200 OK in 42ms (Views: 24.0ms | ActiveRecord: 1.8ms | Allocations: 35205)
+
+
+Started GET "/vacation-spots" for ::1 at 2022-04-28 11:45:00 -0400
+Processing by VacationSpotsController#index as */*
+  Parameters: {"weather"=>"meteors!", "vacation_spot"=>{"weather"=>"meteors!"}}
+  [1m[36mVacationSpot Load (0.1ms)[0m  [1m[34mSELECT "vacation_spots".* FROM "vacation_spots"[0m
+  ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 1]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 2]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.0ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 3]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mVacation Load (0.1ms)[0m  [1m[34mSELECT "vacations".* FROM "vacations" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT "people".* FROM "people" INNER JOIN "vacations" ON "people"."id" = "vacations"."person_id" WHERE "vacations"."vacation_spot_id" = ?[0m  [["vacation_spot_id", 4]]
+[active_model_serializers]   ↳ app/controllers/vacation_spots_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.63ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.8ms | Allocations: 16146)
+
+
