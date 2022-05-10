@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap');
+
+* {
+  /* font-family: 'Stalinist One', cursive; */
+}
+
+body {
+  padding-top: 1.5em;
+}
+
+.profile-pic {
+  max-width: 50px;
+}
+
+.navbar {
+  position: fixed;
+  top: .75em;
+  left: 50vw;
+  background-color: teal;
+  background-image: linear-gradient(to left, teal, orange);
+  width: 100vw;
+  text-align: center;
+  height: 1.5em;
+}
+
+.navbar a {
+  margin: 10px;
+  color: white;
+  text-decoration: none;
+  font-family: 'Stalinist One', cursive;
+  transition: all 0.5s;
+}
+
+.navbar a:hover {
+  font-size: 3em;
+  color: pink;
+}
+
+.centered {
+  transform: translate(-50%, -50%);
+}
+
+.item-card img {
+  border: solid gold 2px;
+  border-radius: 100%;
+}
+
+.item-card {
+  background-color: #30D5C8;
+  width: 30em;
+  padding: 20px;
+  margin: 30px;
+}
+
+.item-card span {
+  margin-left: 3em;
+}
+
+/* .grid-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+} */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  background-color: #39FF14DD;
+  padding: 15vw;
+  border-radius: 1em;
+}
+
+.modal-background-mask {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: black;
+  opacity: 0.2;
+}
+
+
+/* --- ARCHITECTURE --- */
+
+  /* where do we put all the files? */
+
+  /* css by component */
+
+  /* flat css */
+
+
+/* --- POSSIBLE TOPICS --- */
+
+  /* box model */
+
+  /* display types */
+
+  /* position types */
+
+
+
+/* --- SASS --- */
+
+  /* sass variables */
+
+  /* import files */
+
+  /* sass maps */
+
+  /* iterating through sass maps */
+
+  /* mixins */
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+
+  /* media queries */
+
+  /* using responsive units of measurement */
+
+
+
+/* --- GRID / FLEXBOX --- */
+
+  /* grid columns */
+
+  /* flexbox rows with wrap */
+
+
+
+/* --- CSS ANIMATIONS / TRANSITIONS --- */
+
+  /* keyframes animations */
+
+  /* transition effects */
+
+
+
+/* FONTS */
+
+  /* google fonts */
