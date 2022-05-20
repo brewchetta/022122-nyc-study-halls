@@ -1,0 +1,9 @@
+source 'https://rubygems.org'
+
+gem 'nokogiri'
+gem 'pry'
+
+gem 'watir'
+gem 'webdrivers'
+
+gem 'require_all'

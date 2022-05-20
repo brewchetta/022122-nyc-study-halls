@@ -1,0 +1,5 @@
+#!/usr/share/rvm/rubies/ruby-2.7.4/bin/ruby
+
+require_relative '../config/environment.rb'
+
+binding.pry
