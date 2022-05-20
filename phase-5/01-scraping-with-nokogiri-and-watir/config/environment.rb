@@ -2,7 +2,6 @@ require 'pry'
 require 'require_all'
 
 # for nokogiri
-require 'open-uri'
 require 'nokogiri'
 
 # for watir
