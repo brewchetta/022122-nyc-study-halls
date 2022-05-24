@@ -28,7 +28,7 @@ test('renders Numbers', () => {
 
 
 
-// RENDERS AN EXPECTED ARRAY OF NUMBERS
+// RENDERS AN EXPECTED ARRAY OF NUMBERS FROM PROPS
 test('renders the array of numbers in p tags', () => {
   const numberOne = document.querySelectorAll('p')[0]
   expect(numberOne.textContent).toBe("1")
