@@ -20,7 +20,9 @@ afterEach(() => {
 
 // APP RENDERS
 test('renders App', () => {
-  render(<App />, container)
+  act(() => {
+    render(<App />, container)
+  })
 
   const appDiv = document.querySelector('.App')
 
@@ -29,18 +31,18 @@ test('renders App', () => {
 
 
 
-// APP HAS THE EXPECTED INNER TEXT
-test('renders the inner text ("Hello") of App', () => {
+// APP HAS THE EXPECTED TITLE TEXT
+test('renders the title ("React Testing!!!") inside App', () => {
   render(<App />, container)
 
-  const appDiv = document.querySelector('.App')
+  const appTitle = document.querySelector('.App h1')
 
-  expect(appDiv.textContent.includes(`Hello I'm the App`)).toBeTruthy();
+  expect(appTitle.textContent).toBe('React Testing!!!');
 });
 
 
 
-// APP CAN FETCH (WITH A MOCKED FETCH)
+// APP CAN RESPOND TO A FETCH CALL
 test('fetches data when the component mounts', async () => {
   const data = [1,2,3]
 
