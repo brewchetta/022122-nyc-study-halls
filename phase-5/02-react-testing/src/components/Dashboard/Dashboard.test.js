@@ -4,6 +4,14 @@ import Dashboard from './Dashboard';
 
 // HELPERS
 
+jest.mock("./Calendar", () => {
+  return function DummyCalendar() {
+    return (
+      <div className="mock-calendar">Hi I am mocked!</div>
+    );
+  };
+});
+
 let container
 
 beforeEach(() => {
@@ -30,20 +38,10 @@ test('renders Dashboard', () => {
 
 
 // DASHBOARD ABLE TO RENDER WITH A MOCKED CALENDAR
-jest.mock("./Calendar", () => {
-  return function DummyNumbers() {
-    return (
-      <div>
-        <p>I am mocked</p>
-      </div>
-    )
-  }
-})
-
-
-
-test('example mocking something different', () => {
+test('renders with a mocked calendar', () => {
   render(<Dashboard />, container)
 
-  expect(document.querySelector('p').textContent).toBe("I am mocked")
+  const mockCal = document.querySelector('.mock-calendar')
+
+  expect(mockCal).toBeTruthy()
 })

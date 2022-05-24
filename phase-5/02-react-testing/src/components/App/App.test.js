@@ -19,44 +19,47 @@ afterEach(() => {
 
 
 // APP RENDERS
-test('renders App', () => {
-  act(() => {
-    render(<App />, container)
-  })
+test('renders the App component', () => {
+  render(<App />, container)
 
-  const appDiv = document.querySelector('.App')
+  const app = document.querySelector('.App')
 
-  expect(appDiv).toBeTruthy();
-});
-
+  expect(app).toBeTruthy()
+})
 
 
 // APP HAS THE EXPECTED TITLE TEXT
-test('renders the title ("React Testing!!!") inside App', () => {
+test('has title text', () => {
   render(<App />, container)
 
-  const appTitle = document.querySelector('.App h1')
+  const title = document.querySelector('h1')
 
-  expect(appTitle.textContent).toBe('React Testing!!!');
-});
+  expect(title).toBeTruthy()
+  expect(title.textContent.includes('React Testing')).toBeTruthy()
+})
+
 
 
 
 // APP CAN RESPOND TO A FETCH CALL
-test('fetches data when the component mounts', async () => {
-  const data = [1,2,3]
+test('can respond to fetch calls', async () => {
+  const cakeNumbers = [1,2,3,4,5,6]
 
-  jest.spyOn(global, 'fetch').mockImplementation(() => {
-    return Promise.resolve({
-      json: () => Promise.resolve(data)
+  jest.spyOn(global, "fetch").mockImplementation(() =>
+    Promise.resolve({
+      json: () => Promise.resolve(cakeNumbers)
     })
-  })
+  );
 
   await act(async () => {
-    render(<App />, container)
-  })
+    render(<App />, container);
+  });
 
-  expect(document.querySelector('p').textContent).toBe("1")
+  const lis = document.querySelectorAll('li')
 
-  global.fetch.mockRestore()
+  expect(lis).toBeTruthy()
+  expect(lis.length > 0).toBeTruthy()
+
+  expect(lis[0].textContent).toBe('1')
+  expect(lis[5].textContent).toBe('6')
 })

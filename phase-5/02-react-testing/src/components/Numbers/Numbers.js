@@ -4,7 +4,7 @@ function Numbers({items}) {
       <div>
         {
           items.map(number => (
-            <p key={number}>{number}</p>
+            <li key={number}>{number}</li>
           ))
         }
       </div>

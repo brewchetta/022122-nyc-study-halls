@@ -29,13 +29,3 @@ test('renders Numbers', () => {
 
 
 // RENDERS AN EXPECTED ARRAY OF NUMBERS FROM PROPS
-test('renders the array of numbers in p tags', () => {
-  const numberOne = document.querySelectorAll('p')[0]
-  expect(numberOne.textContent).toBe("1")
-
-  const numberTwo = document.querySelectorAll('p')[1]
-  expect(numberTwo.textContent).toBe("2")
-
-  const numberThree = document.querySelectorAll('p')[2]
-  expect(numberThree.textContent).toBe("3")
-})

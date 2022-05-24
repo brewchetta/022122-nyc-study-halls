@@ -30,33 +30,34 @@ test('renders ClickCounter', () => {
 
 
 // THE COUNTER STARTS AT 0
-test('starts at 0', () => {
+test('the button starts at 0', () => {
   render(<ClickCounter />, container)
 
   const button = document.querySelector('button')
 
-  expect(button.textContent).toBe("0");
-});
+  expect(button.textContent).toBe('0');
+})
+
 
 
 
 // THE COUNTER INCREMENTS WHEN CLICKED (INCLUDING MULTIPLE CLICKS)
-test('increments the counter each time when clicked', () => {
+test('the button starts at 0', () => {
   render(<ClickCounter />, container)
 
   const button = document.querySelector('button')
 
   act(() => {
-    button.dispatchEvent( new MouseEvent( "click", { bubbles: true } ) )
-  })
+    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
 
-  expect(button.textContent).toBe("1");
+  expect(button.textContent).toBe('1');
 
-  act(() => {
-    for (let i = 0; i < 10; i++) {
-      button.dispatchEvent( new MouseEvent( "click", { bubbles: true } ) )
-    }
-  })
+  for (let i = 0; i < 1000; i++) {
+    act(() => {
+      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+  }
 
-  expect(button.textContent).toBe("11")
-});
+  expect(button.textContent).toBe('1001');
+})
