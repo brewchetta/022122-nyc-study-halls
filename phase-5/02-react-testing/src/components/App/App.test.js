@@ -18,8 +18,7 @@ afterEach(() => {
 })
 
 
-// APP TESTS
-
+// APP RENDERS
 test('renders App', () => {
   render(<App />, container)
 
@@ -30,16 +29,18 @@ test('renders App', () => {
 
 
 
+// APP HAS THE EXPECTED INNER TEXT
 test('renders the inner text ("Hello") of App', () => {
   render(<App />, container)
 
   const appDiv = document.querySelector('.App')
 
-  expect(appDiv.textContent).toBe('Hello');
+  expect(appDiv.textContent.includes(`Hello I'm the App`)).toBeTruthy();
 });
 
 
 
+// APP CAN FETCH (WITH A MOCKED FETCH)
 test('fetches data when the component mounts', async () => {
   const data = [1,2,3]
 

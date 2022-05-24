@@ -10,10 +10,12 @@ function LoadingBar() {
     }, 2000)
   }, [])
 
-  return (
-    <div className="loading-bar-container" style={{width: '200px'}}>
+  const loadingBarStyle = {width: `${loadedPercent}%`, height: '30px', backgroundColor: 'green', transition: 'width 1s'}
 
-      <div className="loading-bar" style={{width: `${loadedPercent}%`, backgroundColor: 'green'}} />
+  return (
+    <div className="loading-bar-container" style={{width: '200px', height: '30px'}}>
+
+      <div className="loading-bar" style={loadingBarStyle} />
 
     </div>
   )

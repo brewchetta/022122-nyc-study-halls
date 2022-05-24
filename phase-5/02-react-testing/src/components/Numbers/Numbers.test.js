@@ -19,8 +19,7 @@ afterEach(() => {
 })
 
 
-// CLICK_COUNTER TESTS
-
+// NUMBER CONTAINER RENDERS
 test('renders Numbers', () => {
   const numbersDiv = document.querySelector('div')
 
@@ -29,6 +28,7 @@ test('renders Numbers', () => {
 
 
 
+// RENDERS AN EXPECTED ARRAY OF NUMBERS
 test('renders the array of numbers in p tags', () => {
   const numberOne = document.querySelectorAll('p')[0]
   expect(numberOne.textContent).toBe("1")

@@ -18,8 +18,7 @@ afterEach(() => {
 })
 
 
-// CLICK_COUNTER TESTS
-
+// CLICK_COUNTER RENDERS
 test('renders ClickCounter', () => {
   render(<ClickCounter />, container)
 
@@ -30,6 +29,7 @@ test('renders ClickCounter', () => {
 
 
 
+// THE COUNTER STARTS AT 0
 test('starts at 0', () => {
   render(<ClickCounter />, container)
 
@@ -40,6 +40,7 @@ test('starts at 0', () => {
 
 
 
+// THE COUNTER INCREMENTS WHEN CLICKED (INCLUDING MULTIPLE CLICKS)
 test('increments the counter each time when clicked', () => {
   render(<ClickCounter />, container)
 

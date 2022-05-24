@@ -18,8 +18,7 @@ afterEach(() => {
 })
 
 
-// LOADING BAR TESTS
-
+// LOADING BAR RENDERS
 test('renders LoadingBar', () => {
   render(<LoadingBar />, container)
 
@@ -30,6 +29,7 @@ test('renders LoadingBar', () => {
 
 
 
+// LOADING BAR STARTS AT 0 WIDTH
 test('starts at zero percent', () => {
   render(<LoadingBar />, container)
 
@@ -40,6 +40,7 @@ test('starts at zero percent', () => {
 
 
 
+// LOADING BAR GOES TO 100% WIDTH AFTER TWO SECONDS (MOCKING TIME ADVANCEMENT)
 test('goes to one hundred percent after two seconds', () => {
   jest.useFakeTimers();
   render(<LoadingBar />, container)

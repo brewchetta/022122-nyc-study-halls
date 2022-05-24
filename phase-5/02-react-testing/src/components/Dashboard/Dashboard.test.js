@@ -18,8 +18,7 @@ afterEach(() => {
 })
 
 
-// DASHBOARD TESTS
-
+// DASHBOARD RENDERS
 test('renders Dashboard', () => {
   render(<Dashboard />, container)
 
@@ -30,6 +29,7 @@ test('renders Dashboard', () => {
 
 
 
+// DASHBOARD ABLE TO RENDER WITH A MOCKED CALENDAR
 jest.mock("./Calendar", () => {
   return function DummyNumbers() {
     return (

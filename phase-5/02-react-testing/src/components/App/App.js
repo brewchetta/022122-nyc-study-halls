@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 
-import ClickCounter from '../ClickCounter'
 import Numbers from '../Numbers'
+import ClickCounter from '../ClickCounter'
+import Dashboard from '../Dashboard'
+import LoadingBar from '../LoadingBar'
 
 function App() {
 
@@ -15,9 +17,15 @@ function App() {
 
   return (
     <div className="App">
-      Hello
+      Hello I'm the App
 
       <Numbers items={items} />
+
+      <ClickCounter />
+
+      <Dashboard />
+
+      <LoadingBar />
 
     </div>
   );
